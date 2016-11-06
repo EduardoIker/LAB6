@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<HTML>
+   <HEAD>
+      <meta charset="utf-8">
+      <TITLE> Obtener datos </TITLE>
+      <script lenguaje="javascript">
+         function completar(){
+          var enc=false;
+          var xmlDoc = document.getElementById("datos").contentDocument;
+          var correo = document.getElementById("correo").value;
+          var listacorreos=xmlDoc.getElementsByTagName("email");
+          var listatelefonos=xmlDoc.getElementsByTagName("telefono");
+		  var listanombres=xmlDoc.getElementsByTagName("nombre");
+		  var listaapellidos1=xmlDoc.getElementsByTagName("apellido1");
+		  var listaapellidos2=xmlDoc.getElementsByTagName("apellido2");
+          for (var i = 0; i < listacorreos.length; i++) {
+         	if (correo==listacorreos[i].childNodes[0].nodeValue){
+         		document.getElementById("telefono").value=listatelefonos[i].childNodes[0].nodeValue;
+				document.getElementById("nombre").value=listanombres[i].childNodes[0].nodeValue;
+				document.getElementById("apellido1").value=listaapellidos1[i].childNodes[0].nodeValue;
+				document.getElementById("apellido2").value=listaapellidos2[i].childNodes[0].nodeValue;
+         		enc=true;
+         		break;
+         	}
+          }
+          if (!enc){
+         	alert ('Este correo no está registrado en la UPV/EHU. Introduzca otro');
+          }
+         }
+      </script>
+   </HEAD>
+   <BODY>
+      <div align="center">
+         <h1>Buscar teléfono ...</h1>
+         <OBJECT id="datos" data="usuarios.xml" type="text/xml" style="display:none">
+         </OBJECT>
+         <FORM METHOD="POST" ACTION="insertar.php">
+            Correo <BR>
+            <INPUT TYPE="TEXT" NAME="correo" id="correo" required><BR>
+			Nombre <BR>
+            <INPUT TYPE="TEXT" NAME="nombre" id="nombre" required><BR>
+			Apellido1 <BR>
+            <INPUT TYPE="TEXT" NAME="apellido1" id="apellido1" required><BR>
+			Apellido2 <BR>
+            <INPUT TYPE="TEXT" NAME="apellido2" id="apellido2" required><BR>
+            Teléfono <BR>
+            <INPUT TYPE="TEXT" NAME="telefono" id="telefono" required="required" maxlength="9" pattern="[0-9]{9}" />
+            <br><br>
+            <INPUT TYPE="button" value="Autocompletar" onClick="javascript:completar()">
+         </FORM>
+      </div>
+   </BODY>
+</HTML>

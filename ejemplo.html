@@ -1,0 +1,37 @@
+<!-- Se escribe un mapa con la localizacion anterior-->
+<div id="info"></div>
+<div id="divMapa"></div>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+	var divInfo=document.getElementById("info");
+	navigator.geolocation.getCurrentPosition(showPosition,showError);
+	function showPosition(position){
+	  lat=position.coords.latitude;
+	  lon=position.coords.longitude;
+	  latlon=new google.maps.LatLng(lat, lon);
+	  divMapa=document.getElementById('divMapa');
+	  divMapa.style.height='250px';
+	  divMapa.style.width='500px';
+	  var myOptions={center:latlon,zoom:10,mapTypeId:google.maps.MapTypeId.ROADMAP,mapTypeControl:false,navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}};
+	  var map=new google.maps.Map(document.getElementById("divMapa"),myOptions);
+	  var marker=new google.maps.Marker({position:latlon,map:map});
+	  var popup = new google.maps.InfoWindow({content: 'Esta es tu ubicacion'});
+      popup.open(map, marker); 
+	}
+	function showError(error){
+	  switch(error.code) {
+		case error.PERMISSION_DENIED:
+		  divInfo.innerHTML="Se ha denegado el acceso a la localizacion."
+		  break;
+		case error.POSITION_UNAVAILABLE:
+		  divInfo.innerHTML="No es posible obtener la localizacion actual."
+		  break;
+		case error.TIMEOUT:
+		  divInfo.innerHTML="Tiempo de peticion agotado."
+		  break;
+		case error.UNKNOWN_ERROR:
+		  divInfo.innerHTML="Se ha producido un error al obtener la localizacion."
+		  break;
+	}
+}
+</script>

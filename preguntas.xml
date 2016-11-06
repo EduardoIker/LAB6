@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="VerPreguntas.xsl"?>
+<assessmentItems>
+	<assessmentItem complexity="1" subject="Web">
+		<itemBody>
+			<p>Siglas del protocolo de transferencia de hipertexto</p>
+		</itemBody>
+		<correctResponse>
+			<value>
+				HTTP
+			</value>
+		</correctResponse>
+	</assessmentItem>
+		<assessmentItem complexity="3" subject="Web">
+		<itemBody>
+			<p>Creador de la web?</p>
+		</itemBody>
+		<correctResponse>
+			<value>
+				Tim Berners-Lee
+			</value>
+		</correctResponse>
+	</assessmentItem>
+<assessmentItem complexity="3" subject="Internet"><itemBody><p>Creador de internet?</p></itemBody><correctResponse><value>Vinton Cerf</value></correctResponse></assessmentItem><assessmentItem complexity="2" subject="Internet y WWW"><itemBody><p>Internet y la Web son lo mismo?</p></itemBody><correctResponse><value>No</value></correctResponse></assessmentItem><assessmentItem complexity="1" subject="Lado Servidor"><itemBody><p>Lenguaje de script comunmente usado en el lado servidor</p></itemBody><correctResponse><value>PHP</value></correctResponse></assessmentItem><assessmentItem complexity="5" subject="Lado servidor"><itemBody><p>Creador de PHP?</p></itemBody><correctResponse><value>Rasmus Lerdorf</value></correctResponse></assessmentItem><assessmentItem complexity="1" subject="Lado cliente"><itemBody><p>Java y Javascript son lo mismo?</p></itemBody><correctResponse><value>No</value></correctResponse></assessmentItem><assessmentItem complexity="1" subject="aaa"><itemBody><p>aaaaaa</p></itemBody><correctResponse><value>aaaaa</value></correctResponse></assessmentItem></assessmentItems>
